@@ -71,9 +71,14 @@ const Navbar = () => {
 
         {/* Right: CTA & Mobile Toggle */}
         <div className="flex items-center gap-4">
-          <button className="hidden md:block bg-[#F0C477] text-[#06131A] px-8 py-2 rounded-full font-bold tracking-wider hover:bg-[#D9A85C] hover:shadow-[0_0_15px_rgba(217,168,92,0.5)] transition-all duration-300">
+          <a 
+            href="https://forms.gle/f76Aj5QzdLUyu6wbA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:block bg-[#F0C477] text-[#06131A] px-8 py-2 rounded-full font-bold tracking-wider hover:bg-[#D9A85C] hover:shadow-[0_0_15px_rgba(217,168,92,0.5)] transition-all duration-300"
+          >
             REGISTER
-          </button>
+          </a>
           
           <button 
             className="lg:hidden text-white"
@@ -105,9 +110,14 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <button className="bg-[var(--color-brand-gold)] text-black px-6 py-3 mt-4 rounded-md font-semibold text-center">
+              <a 
+                href="https://forms.gle/f76Aj5QzdLUyu6wbA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[var(--color-brand-gold)] text-black px-6 py-3 mt-4 rounded-md font-semibold text-center block"
+              >
                 REGISTER NOW
-              </button>
+              </a>
             </div>
           </motion.div>
         )}
