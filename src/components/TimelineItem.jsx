@@ -32,8 +32,8 @@ const TimelineItem = ({ title, date, description, index, isLeft }) => {
 
       {/* Connecting line desktop */}
       <motion.div 
-        initial={{ opacity: 0, x: isLeft ? 50 : -50, filter: "blur(10px)" }}
-        whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+        initial={{ opacity: 0, x: isLeft ? 50 : -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.6, delay: index * 0.2 }}
         className={`hidden md:flex absolute top-1/2 -translate-y-1/2 h-[1px] bg-[#D9A85C]/50 z-10`}
@@ -45,8 +45,8 @@ const TimelineItem = ({ title, date, description, index, isLeft }) => {
 
       {/* Connecting line mobile */}
       <motion.div 
-        initial={{ opacity: 0, x: isLeft ? 50 : -50, filter: "blur(10px)" }}
-        whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+        initial={{ opacity: 0, x: isLeft ? 50 : -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.6, delay: index * 0.2 }}
         className="md:hidden absolute top-1/2 -translate-y-1/2 left-[56px] w-[24px] h-[1px] bg-[#D9A85C]/50 z-10" 
@@ -54,11 +54,11 @@ const TimelineItem = ({ title, date, description, index, isLeft }) => {
 
       {/* Content card */}
       <motion.div 
-        initial={{ opacity: 0, x: isLeft ? 50 : -50, filter: "blur(10px)" }}
-        whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+        initial={{ opacity: 0, x: isLeft ? 50 : -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.6, delay: index * 0.2 }}
-        className={`bg-[#051016]/90 backdrop-blur-md border border-[#D9A85C]/30 rounded-2xl p-6 w-[calc(100%-5rem)] md:w-5/12 ml-20 md:ml-0 relative group hover:border-[#D9A85C]/60 hover:shadow-[0_0_30px_rgba(217,168,92,0.15)] transition-all duration-300`}
+        className={`bg-[#051016]/90 md:backdrop-blur-md border border-[#D9A85C]/30 rounded-2xl p-6 w-[calc(100%-5rem)] md:w-5/12 ml-20 md:ml-0 relative group hover:border-[#D9A85C]/60 hover:shadow-[0_0_30px_rgba(217,168,92,0.15)] transition-all duration-300`}
       >
         <h3 className="text-xl font-display font-medium text-[#F9E0A9] mb-1 leading-snug">{title}</h3>
         <span className="text-[#D9A85C] font-sans text-sm mb-4 block tracking-wide">{date}</span>

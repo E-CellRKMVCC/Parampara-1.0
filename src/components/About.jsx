@@ -4,15 +4,15 @@ import aboutImg from '../assets/images/About.bg.png';
 
 const About = () => {
   return (
-    <section id="about" className="py-24 relative overflow-hidden z-10">
+    <section id="about" className="max-[420px]:py-16 py-24 relative overflow-hidden z-10">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 items-center">
           
           {/* LEFT: ABOUT */}
           <motion.div 
-            initial={{ opacity: 0, x: -50, filter: "blur(15px)" }}
-            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
             className="flex flex-col justify-center space-y-6"
@@ -25,7 +25,7 @@ const About = () => {
             </div>
             
             <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-              Parampara 1.0 is the inter-college hackathon of Ramakrishna Mission Vivekananda Centenary College, an initiative by E-Cell RKMVCC.
+              parampara 1.0 is the inter-college hackathon of Ramakrishna Mission Vivekananda Centenary College, an initiative by E-Cell RKMVCC.
             </p>
             
             <p className="text-gray-400 text-sm md:text-base leading-relaxed">
@@ -35,8 +35,8 @@ const About = () => {
 
           {/* CENTRAL VISUAL (The split face) */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9, filter: "blur(20px)" }}
-            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
             className="flex justify-center items-center relative"
@@ -50,11 +50,11 @@ const About = () => {
 
           {/* RIGHT: THEME */}
           <motion.div 
-            initial={{ opacity: 0, x: 50, filter: "blur(15px)" }}
-            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col justify-center border border-[var(--color-brand-gold)]/50 rounded-3xl p-8 relative bg-[var(--color-brand-surface-1)]/30 backdrop-blur-sm"
+            className="flex flex-col justify-center border border-[var(--color-brand-gold)]/50 rounded-3xl max-[420px]:p-5 p-8 relative bg-[var(--color-brand-surface-1)]/30 md:backdrop-blur-sm"
           >
             <div className="flex justify-between items-start mb-6">
               <div>

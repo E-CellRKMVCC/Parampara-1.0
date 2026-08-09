@@ -4,10 +4,10 @@ import { User } from 'lucide-react';
 
 const TeamCard = ({ name, designation, image, linkedin, email }) => {
   return (
-    <div className="group relative bg-[#051016]/80 backdrop-blur-md border border-[#D9A85C]/30 rounded-xl overflow-hidden hover:border-[#D9A85C]/60 hover:shadow-[0_0_20px_rgba(217,168,92,0.15)] transition-all duration-300 w-full aspect-[4/5] flex flex-col justify-center items-center p-4">
+    <div className="group relative bg-[#051016]/80 md:backdrop-blur-md border border-[#D9A85C]/30 rounded-xl overflow-hidden hover:border-[#D9A85C]/60 hover:shadow-[0_0_20px_rgba(217,168,92,0.15)] transition-all duration-300 w-full h-full flex flex-col justify-center items-center py-6 px-4">
       
       {/* Profile Image / Avatar */}
-      <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden mb-4 bg-[#010408] border border-[#D9A85C]/20 flex items-center justify-center relative">
+      <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-full overflow-hidden mb-4 bg-black border border-[#D9A85C]/20 flex items-center justify-center relative">
         {image ? (
           <img 
             src={image} 

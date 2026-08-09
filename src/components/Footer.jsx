@@ -7,14 +7,14 @@ import ecellLogo from '../assets/images/E-cell-Logo-W.png';
 
 const Footer = () => {
   return (
-    <footer className="relative z-10 border-t border-white/10 bg-[var(--color-brand-bg)]/80 backdrop-blur-md py-8">
+    <footer className="relative z-10 border-t border-white/10 bg-[var(--color-brand-bg)]/80 md:backdrop-blur-md max-[420px]:py-6 py-8">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row justify-between items-center md:items-stretch gap-10 md:gap-4"
+          className="flex flex-col md:flex-row justify-between items-center md:items-stretch max-[420px]:gap-6 gap-10 md:gap-4"
         >
           
           {/* Left: Parampara Info & Copyright */}
@@ -25,7 +25,7 @@ const Footer = () => {
             </p>
             
             <p className="text-xs text-gray-500 font-medium mt-auto md:pb-2">
-              © 2026 Parampara 1.0. All Rights Reserved.
+              © 2026 parampara 1.0. All Rights Reserved.
             </p>
           </div>
 
@@ -37,7 +37,7 @@ const Footer = () => {
             <img 
               src={ecellLogo} 
               alt="E-Cell RKMVCC" 
-              className="w-full max-w-[120px] md:max-w-[160px] h-auto mb-4 opacity-90 hover:opacity-100 transition-opacity duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" 
+              className="w-full max-[420px]:max-w-[100px] max-w-[120px] md:max-w-[160px] h-auto mb-4 opacity-90 hover:opacity-100 transition-opacity duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" 
             />
             <span className="text-[#D9A85C] text-[10px] md:text-xs font-semibold uppercase tracking-widest">
               We Serve • We Innovate • We Lead

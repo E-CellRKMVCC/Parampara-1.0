@@ -6,9 +6,9 @@ import faqBg from '../assets/images/Faq-BG.png';
 
 const FAQItem = ({ question, answer, isOpen, onClick }) => {
   return (
-    <div className={`mb-4 border border-[#D9A85C]/20 rounded-xl overflow-hidden transition-all duration-300 ${isOpen ? 'bg-[#D9A85C]/10 border-[#D9A85C]/50 shadow-[0_0_15px_rgba(217,168,92,0.1)]' : 'bg-[#051016]/80 backdrop-blur-md hover:border-[#D9A85C]/40'}`}>
+    <div className={`mb-4 border border-[#D9A85C]/20 rounded-xl overflow-hidden transition-all duration-300 ${isOpen ? 'bg-[#D9A85C]/10 border-[#D9A85C]/50 shadow-[0_0_15px_rgba(217,168,92,0.1)]' : 'bg-[#051016]/80 md:backdrop-blur-md hover:border-[#D9A85C]/40'}`}>
       <button 
-        className="w-full px-6 py-4 md:py-5 text-left flex justify-between items-center group focus:outline-none"
+        className="w-full max-[420px]:px-4 max-[420px]:py-3 px-6 py-4 md:py-5 text-left flex justify-between items-center group focus:outline-none"
         onClick={onClick}
       >
         <h3 className="text-[15px] md:text-base font-medium text-gray-200 group-hover:text-white transition-colors duration-300 pr-8">
@@ -40,7 +40,7 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section id="faq" className="py-24 relative z-10 overflow-hidden">
+    <section id="faq" className="max-[420px]:py-16 py-24 relative z-10 overflow-hidden">
       
       {/* Background Image */}
       <div 
@@ -53,22 +53,22 @@ const FAQ = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.div 
-            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="flex items-center justify-center gap-4 mb-8"
           >
             <div className="flex items-center gap-2">
-              <div className="w-8 md:w-12 h-px bg-gradient-to-r from-transparent to-[#D9A85C]/50"></div>
+              <div className="max-[420px]:w-4 w-8 md:w-12 h-px bg-gradient-to-r from-transparent to-[#D9A85C]/50"></div>
               <div className="w-2 h-2 rotate-45 border border-[#D9A85C]/50"></div>
             </div>
-            <h2 className="text-xl md:text-3xl font-display font-medium tracking-[0.1em] text-[#F9E0A9] uppercase">
+            <h2 className="max-[420px]:text-lg text-xl md:text-3xl font-display font-medium tracking-[0.1em] text-[#F9E0A9] uppercase">
               Frequently Asked Questions
             </h2>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rotate-45 border border-[#D9A85C]/50"></div>
-              <div className="w-8 md:w-12 h-px bg-gradient-to-l from-transparent to-[#D9A85C]/50"></div>
+              <div className="max-[420px]:w-4 w-8 md:w-12 h-px bg-gradient-to-l from-transparent to-[#D9A85C]/50"></div>
             </div>
           </motion.div>
         </div>

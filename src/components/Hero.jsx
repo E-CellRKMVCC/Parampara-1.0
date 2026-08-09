@@ -41,34 +41,34 @@ const Hero = () => {
         
         {/* Eyebrow */}
         <motion.div 
-          initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-4 md:mb-6"
         >
-          <span className="text-[var(--color-brand-gold-light)] text-xs md:text-sm tracking-[0.2em] md:tracking-[0.3em] font-medium uppercase border border-white/20 rounded-full px-6 py-2 bg-white/5 backdrop-blur-sm">
+          <span className="inline-block text-[var(--color-brand-gold-light)] max-[420px]:text-[10px] text-xs md:text-sm max-[420px]:tracking-[0.1em] tracking-[0.2em] md:tracking-[0.3em] font-medium uppercase border border-white/20 rounded-full max-[420px]:px-3 px-6 max-[420px]:py-1.5 py-2 bg-white/5 md:backdrop-blur-sm">
             An Inter-College Hackathon
           </span>
         </motion.div>
         
         {/* Main Logo Image */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, filter: "blur(15px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mb-4 md:mb-6"
         >
           <img 
             src={paramparaLogo} 
             alt="Parampara Logo" 
-            className="w-28 md:w-40 lg:w-48 object-contain mx-auto drop-shadow-xl" 
+            className="max-[420px]:w-20 w-28 md:w-40 lg:w-48 object-contain mx-auto drop-shadow-xl" 
           />
         </motion.div>
         
         {/* Main Logo Text */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, filter: "blur(20px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mb-6 md:mb-10 drop-shadow-2xl"
         >
@@ -77,29 +77,23 @@ const Hero = () => {
 
             {/* Parampara — gradient text with cyan/magenta ghost layers */}
             <div className="relative">
-              <h1 className="font-shivaraja text-5xl md:text-7xl lg:text-8xl tracking-widest bg-gradient-to-b from-[#F9E0A9] via-[#D9A85C] to-[#9B6F30] text-transparent bg-clip-text leading-none capitalize pt-4">
-                Parampara
-              </h1>
+              <h1 className="font-shivaraja max-[420px]:text-4xl text-5xl md:text-7xl lg:text-8xl tracking-widest bg-gradient-to-b from-[#F9E0A9] via-[#D9A85C] to-[#9B6F30] text-transparent bg-clip-text leading-none pt-4">parampara</h1>
               {/* Cyan ghost */}
               <h1
                 aria-hidden="true"
-                className={`sv-layer font-shivaraja text-5xl md:text-7xl lg:text-8xl tracking-widest leading-none capitalize pt-4 ${isBursting ? 'sv-layer-1' : ''}`}
+                className={`sv-layer font-shivaraja max-[420px]:text-4xl text-5xl md:text-7xl lg:text-8xl tracking-widest leading-none pt-4 ${isBursting ? 'sv-layer-1' : ''}`}
                 style={{ WebkitTextFillColor: '#3CC7D8', fontFamily: 'Shivaraja, serif' }}
-              >
-                Parampara
-              </h1>
+              >parampara</h1>
               {/* Magenta ghost */}
               <h1
                 aria-hidden="true"
-                className={`sv-layer font-shivaraja text-5xl md:text-7xl lg:text-8xl tracking-widest leading-none capitalize pt-4 ${isBursting ? 'sv-layer-2' : ''}`}
+                className={`sv-layer font-shivaraja max-[420px]:text-4xl text-5xl md:text-7xl lg:text-8xl tracking-widest leading-none pt-4 ${isBursting ? 'sv-layer-2' : ''}`}
                 style={{ WebkitTextFillColor: '#FF00FF', fontFamily: 'Shivaraja, serif' }}
-              >
-                Parampara
-              </h1>
+              >parampara</h1>
             </div>
 
             {/* 1.0 — shares the same burst rhythm */}
-            <div className="absolute left-full bottom-2 md:bottom-3 lg:bottom-4 ml-2 md:ml-3 lg:ml-4 text-xl md:text-3xl lg:text-4xl font-futuristic font-bold text-[var(--color-brand-gold-light)]">
+            <div className="absolute left-full max-[420px]:ml-1 max-[420px]:bottom-1 bottom-2 md:bottom-3 lg:bottom-4 ml-2 md:ml-3 lg:ml-4 max-[420px]:text-lg text-xl md:text-3xl lg:text-4xl font-futuristic font-bold text-[var(--color-brand-gold-light)]">
               <GlitchText controlled isBursting={isBursting}>1.0</GlitchText>
             </div>
           </div>
@@ -107,10 +101,10 @@ const Hero = () => {
 
         {/* Event Info Card */}
         <motion.div 
-          initial={{ opacity: 0, y: 40, filter: "blur(15px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="flex flex-col md:flex-row items-center gap-6 md:gap-10 px-6 md:px-10 py-3 md:py-4 rounded-lg border border-[#D9A85C]/60 bg-[#06131A]/70 backdrop-blur-md relative overflow-hidden"
+          className="flex flex-col md:flex-row items-center max-[420px]:gap-3 gap-6 md:gap-10 max-[420px]:px-4 px-6 md:px-10 max-[420px]:py-2 py-3 md:py-4 rounded-lg border border-[#D9A85C]/60 bg-[#06131A]/70 md:backdrop-blur-md relative overflow-hidden"
         >
           {/* Ornamental corners (simplified with CSS) */}
           <div className="absolute top-1 left-1 w-2 h-2 border-t border-l border-[#D9A85C]"></div>

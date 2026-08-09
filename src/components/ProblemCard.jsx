@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 
 const ProblemCard = ({ category, psCode, track, title, description, image }) => {
   return (
-    <div className="group relative bg-[#051016]/60 backdrop-blur-md border border-[#D9A85C]/20 p-5 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#D9A85C]/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(217,168,92,0.15)] flex flex-col items-start gap-4 h-full cursor-pointer">
+    <div className="group relative bg-[#051016]/60 md:backdrop-blur-md border border-[#D9A85C]/20 p-5 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#D9A85C]/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(217,168,92,0.15)] flex flex-col items-start gap-4 h-full cursor-pointer">
       
       {/* Background glow on hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#D9A85C]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

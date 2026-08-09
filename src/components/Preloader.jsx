@@ -38,9 +38,9 @@ const Preloader = ({ setLoading }) => {
   return (
     <motion.div
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0, filter: 'blur(12px)' }}
+      exit={{ opacity: 0 }}
       transition={{ duration: 1.0, ease: 'easeInOut' }}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-[#010408]"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black"
     >
       <AnimatePresence mode="wait">
 
@@ -52,7 +52,7 @@ const Preloader = ({ setLoading }) => {
             alt="E-Cell Logo"
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.05, filter: 'blur(6px)' }}
+            exit={{ opacity: 0, scale: 1.05 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
             className="w-44 md:w-60 object-contain"
           />
@@ -62,8 +62,8 @@ const Preloader = ({ setLoading }) => {
         {phase === 'parampara' && (
           <motion.div
             key="parampara"
-            initial={{ opacity: 0, scale: 0.95, filter: 'blur(8px)' }}
-            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="flex items-center justify-center"
           >
@@ -72,44 +72,38 @@ const Preloader = ({ setLoading }) => {
 
               {/* Base gradient text */}
               <h1
-                className="font-shivaraja tracking-widest leading-none capitalize select-none"
+                className="font-shivaraja tracking-widest leading-none select-none"
                 style={{
-                  fontSize: 'clamp(4rem, 12vw, 9rem)',
+                  fontSize: 'clamp(2.5rem, 12vw, 9rem)',
                   background: 'linear-gradient(to bottom, #F9E0A9, #D9A85C, #9B6F30)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
                   paddingTop: '0.25rem',
                 }}
-              >
-                Parampara
-              </h1>
+              >parampara</h1>
 
               {/* Cyan ghost layer */}
               <h1
                 aria-hidden="true"
-                className={`sv-layer font-shivaraja tracking-widest leading-none capitalize ${isBursting ? 'sv-layer-1' : ''}`}
+                className={`sv-layer font-shivaraja tracking-widest leading-none ${isBursting ? 'sv-layer-1' : ''}`}
                 style={{
-                  fontSize: 'clamp(4rem, 12vw, 9rem)',
+                  fontSize: 'clamp(2.5rem, 12vw, 9rem)',
                   WebkitTextFillColor: '#3CC7D8',
                   paddingTop: '0.25rem',
                 }}
-              >
-                Parampara
-              </h1>
+              >parampara</h1>
 
               {/* Magenta ghost layer */}
               <h1
                 aria-hidden="true"
-                className={`sv-layer font-shivaraja tracking-widest leading-none capitalize ${isBursting ? 'sv-layer-2' : ''}`}
+                className={`sv-layer font-shivaraja tracking-widest leading-none ${isBursting ? 'sv-layer-2' : ''}`}
                 style={{
-                  fontSize: 'clamp(4rem, 12vw, 9rem)',
+                  fontSize: 'clamp(2.5rem, 12vw, 9rem)',
                   WebkitTextFillColor: '#FF00FF',
                   paddingTop: '0.25rem',
                 }}
-              >
-                Parampara
-              </h1>
+              >parampara</h1>
             </div>
           </motion.div>
         )}
