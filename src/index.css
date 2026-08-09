@@ -1,57 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;700&family=Yatra+One&display=swap');
 @import "tailwindcss";
 
-
 @font-face {
-  font-family: 'Samarkan';
-  src: url('./assets/fonts/SAMAN___.TTF') format('truetype');
+  font-family: 'Shivaraja';
+  src: url('./assets/fonts/Shivaraja.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-brand-bg: #010408;
+  --color-brand-surface-1: #051016;
+  --color-brand-surface-2: #091A22;
+  
+  --color-brand-gold: #D9A85C;
+  --color-brand-gold-light: #F0C477;
+  
+  --color-brand-cyan: #3CC7D8;
+  --color-brand-magenta: #FF00FF;
+
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Cormorant Garamond", serif;
+  --font-devanagari: "Yatra One", system-ui;
+  --font-futuristic: "Orbitron", sans-serif;
+  --font-shivaraja: "Shivaraja", serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-brand-bg);
+    color: #e2e8f0;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
 }
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
-.indian-style-text {
-  font-family: 'Samarkan', sans-serif;
+/* ── Base glitch wrapper ──────────────────────────────── */
+.sv-glitch-base {
+  position: relative;
+  display: inline-block;
 }
 
-@font-face {
-  font-family: 'Kunaroh';
-  src: url('./assets/fonts/Kunaroh.ttf') format('truetype');
-}
-.kunaroh-text {
-  font-family: 'Kunaroh', serif;
+/* Coloured overlay layers */
+.sv-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
 }
 
-.momo {
-  font-family: "Momo Signature", cursive; /*Write name*/
+.sv-layer-1 { color: #3CC7D8; }
+.sv-layer-2 { color: #FF00FF; }
+
+/* ── Continuous glitch (old default) ─────────────────── */
+.glitch-text-continuous .sv-layer-1 {
+  opacity: 0.85;
+  animation: glitch-anim-1 calc(2s / var(--glitch-speed, 1)) infinite linear alternate-reverse;
 }
-.cinzel {
-  font-family: "Cinzel Decorative", serif; /*For sanskrit*/
+.glitch-text-continuous .sv-layer-2 {
+  opacity: 0.85;
+  animation: glitch-anim-2 calc(3s / var(--glitch-speed, 1)) infinite linear alternate-reverse;
 }
-.warnes {
-  font-family: "Warnes", cursive; /*use for phone no.*/
+
+/* ── Hover-only variant ───────────────────────────────── */
+.glitch-on-hover .sv-layer-1,
+.glitch-on-hover .sv-layer-2 {
+  opacity: 0;
+  transition: opacity 0.2s;
 }
-.audiowide {
-  font-family: "Audiowide", sans-serif; /*Some highlight in a big paragraph*/
+.glitch-on-hover:hover .sv-layer-1 {
+  opacity: 0.85;
+  animation: glitch-anim-1 calc(2s / var(--glitch-speed, 1)) infinite linear alternate-reverse;
 }
-.zilla {
-  font-family: "Zilla Slab Highlight", serif; /*For highlight*/
+.glitch-on-hover:hover .sv-layer-2 {
+  opacity: 0.85;
+  animation: glitch-anim-2 calc(3s / var(--glitch-speed, 1)) infinite linear alternate-reverse;
 }
-.sirin {
-  font-family: "Sirin Stencil", sans-serif; /*Jut normal using fonts use in any form*/
+
+/* ── Spider-Verse burst mode ─────────────────────────── */
+.sv-glitch-active {
+  animation: sv-base-shake 0.5s steps(2) forwards;
 }
-.indie {
-  font-family: "Indie Flower", cursive; /*Every one Numbers*/
+.sv-glitch-active .sv-layer-1 {
+  opacity: 1;
+  animation: sv-layer1 0.5s steps(2) forwards;
 }
-.arvo {
-  font-family: "Arvo", serif; /*Jut normal using fonts*/
+.sv-glitch-active .sv-layer-2 {
+  opacity: 1;
+  animation: sv-layer2 0.5s steps(2) forwards;
 }
-.agbalumo {
-  font-family: "Agbalumo", system-ui; /*For heading or start a point it's a bold format*/
+
+/* Base element shake */
+@keyframes sv-base-shake {
+  0%   { transform: translate(0)            skew(0deg); }
+  20%  { transform: translate(-4px,  2px)   skew(-4deg); }
+  40%  { transform: translate( 4px, -2px)   skew( 4deg); }
+  60%  { transform: translate(-6px,  3px)   skew(-3deg); }
+  80%  { transform: translate( 3px, -3px)   skew( 2deg); }
+  100% { transform: translate(0)            skew(0deg); }
 }
-.yatra {
-  font-family: "Yatra One", system-ui;
+
+/* Cyan layer */
+@keyframes sv-layer1 {
+  0%   { transform: translate(-12px, -5px) scale(1.05) skew(-6deg); clip-path: polygon(0 15%, 100% 15%, 100% 45%, 0 45%); }
+  25%  { transform: translate( 12px,  5px) scale(1.10) skew( 6deg); clip-path: polygon(0 30%, 100% 30%, 100% 60%, 0 60%); }
+  50%  { transform: translate(-8px,   3px) scale(0.95) skew(-3deg); clip-path: polygon(0  5%, 100%  5%, 100% 35%, 0 35%); }
+  75%  { transform: translate( 8px,  -3px) scale(1.12) skew( 3deg); clip-path: polygon(0 40%, 100% 40%, 100% 70%, 0 70%); }
+  100% { transform: translate(0)                       skew(0deg);  clip-path: polygon(0  0%, 100%  0%, 100%  0%, 0  0%); opacity: 0; }
 }
-.stalinist{
-  font-family: "Stalinist One", sans-serif; /*For main heading*/
+
+/* Magenta layer */
+@keyframes sv-layer2 {
+  0%   { transform: translate( 12px,  5px) scale(1.05) skew( 6deg); clip-path: polygon(0 50%, 100% 50%, 100% 80%, 0 80%); }
+  25%  { transform: translate(-12px, -5px) scale(1.10) skew(-6deg); clip-path: polygon(0 60%, 100% 60%, 100% 90%, 0 90%); }
+  50%  { transform: translate(  8px, -3px) scale(0.95) skew( 3deg); clip-path: polygon(0 40%, 100% 40%, 100% 70%, 0 70%); }
+  75%  { transform: translate( -8px,  3px) scale(1.12) skew(-3deg); clip-path: polygon(0 70%, 100% 70%, 100%100%, 0100%); }
+  100% { transform: translate(0)                       skew(0deg);  clip-path: polygon(0  0%, 100%  0%, 100%  0%, 0  0%); opacity: 0; }
+}
+
+/* ── Classic clip-path keyframes (used by continuous mode) ─ */
+@keyframes glitch-anim-1 {
+  0%   { clip-path: inset(20% 0 80% 0); transform: translate(-5px, 2px); }
+  20%  { clip-path: inset(60% 0 10% 0); transform: translate(5px, -2px); }
+  40%  { clip-path: inset(40% 0 50% 0); transform: translate(-5px, 3px); }
+  60%  { clip-path: inset(80% 0 5%  0); transform: translate(8px, -3px); }
+  80%  { clip-path: inset(10% 0 70% 0); transform: translate(-6px, 2px); }
+  100% { clip-path: inset(30% 0 50% 0); transform: translate(5px, -2px); }
+}
+
+@keyframes glitch-anim-2 {
+  0%   { clip-path: inset(10% 0 60% 0); transform: translate(5px, -2px); }
+  20%  { clip-path: inset(30% 0 20% 0); transform: translate(-5px, 3px); }
+  40%  { clip-path: inset(70% 0 10% 0); transform: translate(8px, -3px); }
+  60%  { clip-path: inset(20% 0 50% 0); transform: translate(-6px, 2px); }
+  80%  { clip-path: inset(50% 0 30% 0); transform: translate(5px, -2px); }
+  100% { clip-path: inset(5%  0 80% 0); transform: translate(-5px, 2px); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-surface-2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-gold);
 }
