@@ -26,7 +26,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
+      className="relative h-[100dvh] lg:h-screen min-h-[600px] flex items-center justify-center pt-16 md:pt-20 overflow-hidden"
     >
       {/* Background */}
       <div 
@@ -37,14 +37,14 @@ const Hero = () => {
       {/* Dark overlay to ensure text readability if needed */}
       <div className="absolute inset-0 bg-black/20 pointer-events-none"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center flex flex-col items-center mt-10 md:mt-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center flex flex-col items-center mt-2 md:mt-8">
         
         {/* Eyebrow */}
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-4 md:mb-6"
+          className="mb-2 md:mb-4"
         >
           <span className="inline-block text-[var(--color-brand-gold-light)] max-[420px]:text-[10px] text-xs md:text-sm max-[420px]:tracking-[0.1em] tracking-[0.2em] md:tracking-[0.3em] font-medium uppercase border border-white/20 rounded-full max-[420px]:px-3 px-6 max-[420px]:py-1.5 py-2 bg-white/5 md:backdrop-blur-sm">
             An Inter-College Hackathon
@@ -56,12 +56,12 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-4 md:mb-6"
+          className="mb-2 md:mb-4"
         >
           <img 
             src={paramparaLogo} 
             alt="Parampara Logo" 
-            className="max-[420px]:w-20 w-28 md:w-40 lg:w-48 object-contain mx-auto drop-shadow-xl" 
+            className="max-[420px]:w-24 w-32 md:w-56 lg:w-64 object-contain mx-auto drop-shadow-xl" 
           />
         </motion.div>
         
@@ -70,7 +70,7 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-6 md:mb-10 drop-shadow-2xl"
+          className="mb-4 md:mb-8 drop-shadow-2xl"
         >
           {/* Title wrapper — glitch applied as a unit */}
           <div className={`inline-flex items-end justify-center relative ${isBursting ? 'sv-glitch-active' : ''}`}>
@@ -129,6 +129,23 @@ const Hero = () => {
             <p className="font-display font-semibold text-white text-xl tracking-wider mb-1">RAMAKRISHNA MISSION</p>
             <p className="text-sm text-gray-300 font-medium">Vivekananda Centenary College</p>
           </div>
+        </motion.div>
+
+        {/* Mobile Registration Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="mt-6 md:hidden"
+        >
+          <a 
+            href="https://forms.gle/f76Aj5QzdLUyu6wbA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#F0C477] text-[#06131A] px-10 py-3.5 rounded-full font-bold tracking-wider hover:bg-[#D9A85C] hover:shadow-[0_0_15px_rgba(217,168,92,0.5)] transition-all duration-300 inline-block"
+          >
+            REGISTER NOW
+          </a>
         </motion.div>
 
       </div>

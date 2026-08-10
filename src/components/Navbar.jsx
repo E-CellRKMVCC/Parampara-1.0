@@ -110,14 +110,6 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <a 
-                href="https://forms.gle/f76Aj5QzdLUyu6wbA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[var(--color-brand-gold)] text-black px-6 py-3 mt-4 rounded-md font-semibold text-center block"
-              >
-                REGISTER NOW
-              </a>
             </div>
           </motion.div>
         )}
