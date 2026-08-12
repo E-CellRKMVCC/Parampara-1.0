@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { problems } from '../data/problems';
 import ProblemCard from './ProblemCard';
+import ProblemModal from './ProblemModal';
 
 const categories = ['ALL', 'AGRICULTURE', 'CLEAN TECH', 'TOURISM', 'CYBERSECURITY', 'EDUCATION', 'DISASTER MGMT', 'MEDTECH', 'MISC'];
 
 const ProblemStatements = () => {
   const [activeCategory, setActiveCategory] = useState('ALL');
+  const [selectedProblem, setSelectedProblem] = useState(null);
 
   const filteredProblems = activeCategory === 'ALL' 
     ? problems 
@@ -94,11 +96,20 @@ const ProblemStatements = () => {
                 exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.2 } }}
                 transition={{ duration: 0.4, type: "spring", bounce: 0.3 }}
               >
-                <ProblemCard {...problem} />
+                <ProblemCard 
+                  {...problem} 
+                  onClick={() => setSelectedProblem(problem)}
+                />
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* Details Modal */}
+        <ProblemModal 
+          problem={selectedProblem} 
+          onClose={() => setSelectedProblem(null)} 
+        />
 
       </div>
     </section>
@@ -106,3 +117,4 @@ const ProblemStatements = () => {
 };
 
 export default ProblemStatements;
+

@@ -4,6 +4,7 @@ import { Calendar } from 'lucide-react';
 import GlitchText from './GlitchText';
 import homeBg from '../assets/images/Home-Bg.png';
 import paramparaLogo from '../assets/images/parampara-w.png';
+import RegisterButton from './RegisterButton';
 
 const Hero = () => {
   const [isBursting, setIsBursting] = useState(false);
@@ -138,14 +139,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="mt-6 md:hidden"
         >
-          <a 
-            href="https://forms.gle/f76Aj5QzdLUyu6wbA"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#F0C477] text-[#06131A] px-10 py-3.5 rounded-full font-bold tracking-wider hover:bg-[#D9A85C] hover:shadow-[0_0_15px_rgba(217,168,92,0.5)] transition-all duration-300 inline-block"
-          >
-            REGISTER NOW
-          </a>
+          <RegisterButton size="lg" text="REGISTER NOW" />
         </motion.div>
 
       </div>

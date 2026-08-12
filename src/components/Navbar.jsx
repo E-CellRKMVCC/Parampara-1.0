@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ecellLogo from '../assets/images/E-cell-Logo-W.png';
 import xLogo from '../assets/images/X.png';
 import paramparaLogo from '../assets/images/parampara-w.png';
+import RegisterButton from './RegisterButton';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -71,14 +72,9 @@ const Navbar = () => {
 
         {/* Right: CTA & Mobile Toggle */}
         <div className="flex items-center gap-4">
-          <a 
-            href="https://forms.gle/f76Aj5QzdLUyu6wbA"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:block bg-[#F0C477] text-[#06131A] px-8 py-2 rounded-full font-bold tracking-wider hover:bg-[#D9A85C] hover:shadow-[0_0_15px_rgba(217,168,92,0.5)] transition-all duration-300"
-          >
-            REGISTER
-          </a>
+          <div className="hidden md:block">
+            <RegisterButton size="sm" text="REGISTER" />
+          </div>
           
           <button 
             className="lg:hidden text-white"
@@ -110,6 +106,9 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
+              <div className="pt-2 pb-2">
+                <RegisterButton fullWidth size="md" text="REGISTER NOW" />
+              </div>
             </div>
           </motion.div>
         )}
