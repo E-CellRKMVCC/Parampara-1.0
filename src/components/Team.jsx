@@ -49,7 +49,7 @@ const Team = () => {
           className="flex flex-wrap justify-center gap-4 md:gap-6 w-full mb-20"
         >
           {team.map((member) => (
-            <div key={member.id} className="w-[calc(50%-0.5rem)] md:w-[calc(20%-1.2rem)]">
+            <div key={member.id} className={member.id === 1 ? `w-full md:w-[calc(40%-1.2rem)] lg:w-[calc(30%-1.2rem)]` : `w-[calc(50%-0.5rem)] md:w-[calc(30%-1.2rem)] lg:w-[calc(20%-1.2rem)]`}>
               <TeamCard {...member} />
             </div>
           ))}
@@ -75,7 +75,7 @@ const Team = () => {
             </p>
           </div>
           
-          <button className="relative z-10 flex items-center gap-2 bg-gradient-to-r from-[#F9E0A9] via-[#D9A85C] to-[#9B6F30] text-black max-[420px]:px-5 max-[420px]:py-2 px-8 py-3 rounded font-bold hover:shadow-[0_0_20px_rgba(217,168,92,0.4)] transition-all duration-300 shrink-0">
+          <button onClick={()=>{window.location.href="mailto:entre@rkmvccrahara.org"}} className="relative z-10 flex items-center gap-2 cursor-pointer bg-gradient-to-r from-[#F9E0A9] via-[#D9A85C] to-[#9B6F30] text-black max-[420px]:px-5 max-[420px]:py-2 px-8 py-3 rounded font-bold hover:shadow-[0_0_20px_rgba(217,168,92,0.4)] transition-all duration-300 shrink-0">
             <Mail size={18} />
             <span>Reach Us</span>
           </button>

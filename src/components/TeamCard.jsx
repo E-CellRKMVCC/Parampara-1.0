@@ -29,12 +29,27 @@ const TeamCard = ({ name, designation, image, linkedin, email }) => {
       
       {/* Socials */}
       <div className="flex gap-3">
-        <a href={linkedin} className="w-7 h-7 rounded border border-[#D9A85C]/40 flex items-center justify-center text-[#D9A85C] hover:bg-[#D9A85C] hover:text-black transition-colors duration-300">
-          <FaLinkedin size={12} />
-        </a>
-        <a href={email} className="w-7 h-7 rounded border border-[#D9A85C]/40 flex items-center justify-center text-[#D9A85C] hover:bg-[#D9A85C] hover:text-black transition-colors duration-300">
-          <FaEnvelope size={12} />
-        </a>
+        {
+          linkedin !== "#" && (
+            <a href={linkedin} className="w-7 h-7 rounded border border-[#D9A85C]/40 flex items-center justify-center text-[#D9A85C] hover:bg-[#D9A85C] hover:text-black transition-colors duration-300">
+              <FaLinkedin size={12} />
+            </a>
+          )
+        }
+        {
+          email !== "#" && (
+            <a href={`mailto:${email}`} className="w-7 h-7 rounded border border-[#D9A85C]/40 flex items-center justify-center text-[#D9A85C] hover:bg-[#D9A85C] hover:text-black transition-colors duration-300">
+              <FaEnvelope size={12} />
+            </a>
+          )
+        }
+        {
+          email === "#" && linkedin === "#" && (
+            <p className="w-fit px-2 h-fit rounded text-center flex items-center justify-center text-gray-400 text-sm">
+              Faculty Members in the Computer Science Department at RKMVCC
+            </p>
+          )
+        }
       </div>
       
     </div>

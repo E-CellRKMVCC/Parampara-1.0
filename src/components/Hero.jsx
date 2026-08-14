@@ -5,6 +5,7 @@ import GlitchText from './GlitchText';
 import homeBg from '../assets/images/Home-Bg.png';
 import paramparaLogo from '../assets/images/parampara-w.png';
 import RegisterButton from './RegisterButton';
+import problemStatementPdf from '../assets/PARAMPARA_Problem_Statement.pdf';
 
 const Hero = () => {
   const [isBursting, setIsBursting] = useState(false);
@@ -137,9 +138,10 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="mt-6 md:hidden"
+          className="mt-6 md:hidden flex flex-col items-center gap-4"
         >
           <RegisterButton size="lg" text="REGISTER NOW" />
+          <RegisterButton size="lg" text="PROBLEM STATEMENTS" href={problemStatementPdf} />
         </motion.div>
 
       </div>

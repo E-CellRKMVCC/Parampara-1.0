@@ -5,6 +5,7 @@ import ecellLogo from '../assets/images/E-cell-Logo-W.png';
 import xLogo from '../assets/images/X.png';
 import paramparaLogo from '../assets/images/parampara-w.png';
 import RegisterButton from './RegisterButton';
+import problemStatementPdf from '../assets/PARAMPARA_Problem_Statement.pdf';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -71,9 +72,9 @@ const Navbar = () => {
         }`}>
           {/* Left: Logos */}
           <div className="flex items-center max-[420px]:gap-2 gap-3 md:gap-4">
-            <img src={ecellLogo} alt="E-Cell Logo" className="max-[420px]:h-10 h-14 md:h-16 w-auto object-contain" />
+            <img onClick={()=>{window.location.href='https://e-cell-rkmvcc.vercel.app/'}} src={ecellLogo} alt="E-Cell Logo" className="max-[420px]:h-10 h-14 md:h-16 w-auto object-contain cursor-pointer" />
             <img src={xLogo} alt="X" className="max-[420px]:h-3 h-4 md:h-5 w-auto object-contain opacity-50" />
-            <img src={paramparaLogo} alt="Parampara Logo" className="max-[420px]:h-10 h-14 md:h-16 w-auto object-contain" />
+            <img onClick={()=>{window.location.reload()}} src={paramparaLogo} alt="Parampara Logo" className="max-[420px]:h-10 h-14 md:h-16 w-auto object-contain cursor-pointer" />
           </div>
 
           {/* Center: Desktop Nav */}
@@ -93,7 +94,8 @@ const Navbar = () => {
 
           {/* Right: CTA & Mobile Toggle */}
           <div className="flex items-center gap-4">
-            <div className="hidden md:block">
+            <div className="hidden md:flex items-center gap-3">
+              <RegisterButton size="sm" text="PROBLEM STATEMENTS" href={problemStatementPdf} />
               <RegisterButton size="sm" text="REGISTER" />
             </div>
             <button

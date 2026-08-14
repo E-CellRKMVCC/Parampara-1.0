@@ -35,6 +35,7 @@ const Footer = () => {
               Organized By
             </span>
             <img 
+              onClick={()=>{window.location.href='https://e-cell-rkmvcc.vercel.app/'}}
               src={ecellLogo} 
               alt="E-Cell RKMVCC" 
               className="w-full max-[420px]:max-w-[100px] max-w-[120px] md:max-w-[160px] h-auto mb-4 opacity-90 hover:opacity-100 transition-opacity duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" 
@@ -47,16 +48,16 @@ const Footer = () => {
           {/* Right: Socials & Policies */}
           <div className="flex flex-col items-center md:items-end w-full md:w-1/3">
             <div className="flex gap-4 md:gap-6 justify-center md:justify-end mb-6 md:mb-0">
-              <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-[var(--color-brand-gold)] hover:border-[var(--color-brand-gold)] transition-all duration-300">
+              <a href="#https://www.instagram.com/ecell_rkmvcc/" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-[var(--color-brand-gold)] hover:border-[var(--color-brand-gold)] transition-all duration-300">
                 <FaInstagram size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-[var(--color-brand-gold)] hover:border-[var(--color-brand-gold)] transition-all duration-300">
+              {/* <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-[var(--color-brand-gold)] hover:border-[var(--color-brand-gold)] transition-all duration-300">
                 <FaLinkedin size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-[var(--color-brand-cyan)] hover:border-[var(--color-brand-cyan)] transition-all duration-300">
+              </a> */}
+              <a href="https://github.com/E-CellRKMVCC/" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-[var(--color-brand-cyan)] hover:border-[var(--color-brand-cyan)] transition-all duration-300">
                 <FaGithub size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition-all duration-300">
+              <a href="mailto:entre@rkmvccrahara.org" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition-all duration-300">
                 <Mail size={18} />
               </a>
             </div>
