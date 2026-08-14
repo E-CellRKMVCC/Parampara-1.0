@@ -1,15 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Hourglass, Upload, Trophy, ChevronRight, ChevronLeft } from 'lucide-react';
+import { Users, Hourglass, Upload, Trophy,Link, ChevronRight, ChevronLeft } from 'lucide-react';
 
 const TimelineItem = ({ title, date, description, index, isLeft }) => {
   const getIcon = () => {
     switch(index) {
       case 0: return <Users size={20} className="text-[#F9E0A9]" />;
-      case 1: return <Hourglass size={20} className="text-[#F9E0A9]" />;
-      case 2: return <Upload size={20} className="text-[#F9E0A9]" />;
-      case 3: return <Trophy size={20} className="text-[#F9E0A9]" />;
-      default: return <Users size={20} className="text-[#F9E0A9]" />;
+      case 2: return <Hourglass size={20} className="text-[#F9E0A9]" />;
+      case 3: return <Upload size={20} className="text-[#F9E0A9]" />;
+      case 4: return <Trophy size={20} className="text-[#F9E0A9]" />;
+      default: return <Link size={20} className="text-[#F9E0A9]" />;
     }
   };
 
