@@ -67,6 +67,7 @@ const ProblemModal = ({ problem, onClose }) => {
             {problem.image && (
               <div className="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 bg-[#071722] p-2 rounded-xl border border-[#D9A85C]/20 flex items-center justify-center">
                 <img
+                  loading="lazy"
                   src={problem.image}
                   alt={problem.title}
                   className="w-full h-full object-contain"

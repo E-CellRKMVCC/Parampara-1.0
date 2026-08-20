@@ -16,7 +16,7 @@ import psMs01 from '../assets/images/Misc.png';
 export const submissionDetails = {
   format: "Solution Presentation Deck (PPT / PDF ONLY)",
   deadline: "August 21",
-  pitchDay: "August 22",
+  pitchDay: "August 27",
   organizer: "E-Cell RKMVCC — PARAMPARA 1.0"
 };
 

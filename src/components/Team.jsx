@@ -5,21 +5,37 @@ import TeamCard from './TeamCard';
 import { Mail } from 'lucide-react';
 import contactBg from '../assets/images/Contact-Us-bg.png';
 
+// Group members by role tier
+const faculty     = team.filter(m => m.id === 1);
+const organizers  = team.filter(m => [2, 3, 4].includes(m.id));  // Soumalya, Subhodeep, Rahul
+const roleMembers = team.filter(m => [5, 6, 7].includes(m.id));  // Rajdeep, Surajit, Abhradeep
+const volunteers  = team.filter(m => m.id >= 8);                  // Toulik, Dhrubajyoti, Palash, Avishek
+
+const RowLabel = ({ label }) => (
+  <div className="w-full flex items-center gap-3 mb-4">
+    <div className="h-px flex-1 bg-gradient-to-r from-transparent to-[#D9A85C]/30" />
+    <span className="text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#D9A85C]/60 font-medium shrink-0">
+      {label}
+    </span>
+    <div className="h-px flex-1 bg-gradient-to-l from-transparent to-[#D9A85C]/30" />
+  </div>
+);
+
 const Team = () => {
   return (
     <section id="team" className="max-[420px]:py-16 py-24 relative z-10 overflow-hidden">
-      
+
       {/* Background Image */}
-      <div 
+      <div
         className="absolute -inset-[20%] opacity-40 pointer-events-none bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${contactBg})` }}
       />
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center mb-16 relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -40,23 +56,74 @@ const Team = () => {
           </motion.div>
         </div>
 
-        {/* Team Grid */}
-        <motion.div 
+        {/* ── UNIFIED TEAM GRID — all screen sizes ── */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex flex-wrap justify-center gap-4 md:gap-6 w-full mb-20"
+          className="flex flex-col gap-8 w-full mb-20"
         >
-          {team.map((member) => (
-            <div key={member.id} className={member.id === 1 ? `w-full md:w-[calc(40%-1.2rem)] lg:w-[calc(30%-1.2rem)]` : `w-[calc(50%-0.5rem)] md:w-[calc(30%-1.2rem)] lg:w-[calc(20%-1.2rem)]`}>
-              <TeamCard {...member} />
+
+          {/* Row 1 — Faculty Advisor */}
+          <div className="flex flex-col items-center gap-4">
+            <RowLabel label="Faculty Advisor" />
+            <div className="flex justify-center w-full">
+              <div className="w-full max-w-[200px] sm:max-w-[220px] md:max-w-[260px]">
+                <TeamCard {...faculty[0]} />
+              </div>
             </div>
-          ))}
+          </div>
+
+          {/* Row 2 — Lead Organiser on top, Co-Organisers below */}
+          <div className="flex flex-col items-center gap-4">
+            <RowLabel label="Lead Organiser & Co-Organisers" />
+
+            {/* Lead — centered alone */}
+            <div className="flex justify-center w-full">
+              <div className="w-full max-w-[200px] sm:max-w-[220px] md:max-w-[260px]">
+                <TeamCard {...organizers[0]} />
+              </div>
+            </div>
+
+            {/* Co-Organisers — side by side */}
+            <div className="flex flex-wrap justify-center gap-4 w-full">
+              {organizers.slice(1).map(member => (
+                <div key={member.id} className="w-[calc(50%-0.5rem)] sm:w-[calc(33.33%-0.75rem)] md:w-[calc(30%-1rem)]">
+                  <TeamCard {...member} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Row 3 — Core Team */}
+          <div className="flex flex-col items-center gap-4">
+            <RowLabel label="Core Team" />
+            <div className="flex flex-wrap justify-center gap-4 w-full">
+              {roleMembers.map(member => (
+                <div key={member.id} className="w-[calc(50%-0.5rem)] sm:w-[calc(33.33%-0.75rem)] md:w-[calc(33.33%-1rem)]">
+                  <TeamCard {...member} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Row 4 — Volunteers */}
+          <div className="flex flex-col items-center gap-4">
+            <RowLabel label="Volunteers" />
+            <div className="flex flex-wrap justify-center gap-4 w-full">
+              {volunteers.map(member => (
+                <div key={member.id} className="w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)] md:w-[calc(25%-1rem)]">
+                  <TeamCard {...member} />
+                </div>
+              ))}
+            </div>
+          </div>
+
         </motion.div>
 
         {/* Contact CTA Banner */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -74,8 +141,8 @@ const Team = () => {
               Reach out to the E-Cell RKMVCC team directly.
             </p>
           </div>
-          
-          <button onClick={()=>{window.location.href="mailto:entre@rkmvccrahara.org"}} className="relative z-10 flex items-center gap-2 cursor-pointer bg-gradient-to-r from-[#F9E0A9] via-[#D9A85C] to-[#9B6F30] text-black max-[420px]:px-5 max-[420px]:py-2 px-8 py-3 rounded font-bold hover:shadow-[0_0_20px_rgba(217,168,92,0.4)] transition-all duration-300 shrink-0">
+
+          <button onClick={() => { window.location.href = "mailto:entre@rkmvccrahara.org" }} className="relative z-10 flex items-center gap-2 cursor-pointer bg-gradient-to-r from-[#F9E0A9] via-[#D9A85C] to-[#9B6F30] text-black max-[420px]:px-5 max-[420px]:py-2 px-8 py-3 rounded font-bold hover:shadow-[0_0_20px_rgba(217,168,92,0.4)] transition-all duration-300 shrink-0">
             <Mail size={18} />
             <span>Reach Us</span>
           </button>

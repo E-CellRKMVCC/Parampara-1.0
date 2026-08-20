@@ -35,6 +35,7 @@ const Footer = () => {
               Organized By
             </span>
             <img 
+              loading="lazy"
               onClick={()=>{window.location.href='https://e-cell-rkmvcc.vercel.app/'}}
               src={ecellLogo} 
               alt="E-Cell RKMVCC" 

@@ -25,7 +25,7 @@ const ContactCTA = () => {
               Reach out to the E-Cell RKMVCC team directly. We are here to help you preserve the legacy and reimagine the future.
             </p>
             
-            <button className="flex items-center gap-3 bg-transparent border-2 border-[var(--color-brand-gold)] text-[var(--color-brand-gold)] px-8 py-4 rounded-md font-semibold hover:bg-[var(--color-brand-gold)] hover:text-black transition-all duration-300 transform hover:-translate-y-1">
+            <button onClick={() => { window.location.href = "mailto:entre@rkmvccrahara.org" }} className="flex items-center gap-3 bg-transparent border-2 border-[var(--color-brand-gold)] text-[var(--color-brand-gold)] px-8 py-4 rounded-md font-semibold hover:bg-[var(--color-brand-gold)] hover:text-black transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
               <Mail size={20} />
               <span>REACH US</span>
               <ArrowRight size={18} className="opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
