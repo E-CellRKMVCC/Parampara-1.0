@@ -14,18 +14,18 @@ const TimelineItem = ({ title, date, description, index, isLeft }) => {
   };
 
   return (
-    <div className={`mb-16 md:mb-12 flex justify-between items-center w-full relative ${isLeft ? 'flex-row-reverse left-timeline' : 'right-timeline'}`}>
+    <div className={`mb-16 lg:mb-12 flex justify-between items-center w-full relative ${isLeft ? 'flex-row-reverse left-timeline' : 'right-timeline'}`}>
       
       {/* Spacer for desktop */}
-      <div className="hidden md:block w-5/12"></div>
+      <div className="hidden lg:block w-5/12"></div>
       
       {/* Center node */}
       <motion.div 
         initial={{ scale: 0, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: true, margin: "-20px" }}
         transition={{ duration: 0.4, delay: index * 0.2 }}
-        className="z-20 flex items-center bg-[#010408] shadow-[0_0_15px_rgba(217,168,92,0.3)] justify-center w-12 h-12 rounded-full border border-[#D9A85C] shrink-0 mx-auto absolute left-2 md:relative md:left-auto"
+        className="z-20 flex items-center bg-[#010408] shadow-[0_0_15px_rgba(217,168,92,0.3)] justify-center w-12 h-12 rounded-full border border-[#D9A85C] shrink-0 mx-auto absolute left-2 lg:relative lg:left-auto"
       >
         {getIcon()}
       </motion.div>
@@ -34,9 +34,9 @@ const TimelineItem = ({ title, date, description, index, isLeft }) => {
       <motion.div 
         initial={{ opacity: 0, x: isLeft ? 50 : -50 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: true, margin: "-20px" }}
         transition={{ duration: 0.6, delay: index * 0.2 }}
-        className={`hidden md:flex absolute top-1/2 -translate-y-1/2 h-[1px] bg-[#D9A85C]/50 z-10`}
+        className={`hidden lg:flex absolute top-1/2 -translate-y-1/2 h-[1px] bg-[#D9A85C]/50 z-10`}
         style={{
           left: isLeft ? '41.666667%' : 'calc(50% + 24px)',
           right: isLeft ? 'calc(50% + 24px)' : '41.666667%'
@@ -47,18 +47,18 @@ const TimelineItem = ({ title, date, description, index, isLeft }) => {
       <motion.div 
         initial={{ opacity: 0, x: isLeft ? 50 : -50 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: true, margin: "-20px" }}
         transition={{ duration: 0.6, delay: index * 0.2 }}
-        className="md:hidden absolute top-1/2 -translate-y-1/2 left-[56px] w-[24px] h-[1px] bg-[#D9A85C]/50 z-10" 
+        className="lg:hidden absolute top-1/2 -translate-y-1/2 left-[56px] w-[24px] h-[1px] bg-[#D9A85C]/50 z-10" 
       />
 
       {/* Content card */}
       <motion.div 
         initial={{ opacity: 0, x: isLeft ? 50 : -50 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: true, margin: "-20px" }}
         transition={{ duration: 0.6, delay: index * 0.2 }}
-        className={`bg-[#051016]/90 md:backdrop-blur-md border border-[#D9A85C]/30 rounded-2xl p-6 w-[calc(100%-5rem)] md:w-5/12 ml-20 md:ml-0 relative group hover:border-[#D9A85C]/60 hover:shadow-[0_0_30px_rgba(217,168,92,0.15)] transition-all duration-300`}
+        className={`bg-[#051016]/90 lg:backdrop-blur-md border border-[#D9A85C]/30 rounded-2xl p-6 w-[calc(100%-5rem)] lg:w-5/12 ml-20 lg:ml-0 relative group hover:border-[#D9A85C]/60 hover:shadow-[0_0_30px_rgba(217,168,92,0.15)] transition-all duration-300`}
       >
         <h3 className="text-xl font-display font-medium text-[#F9E0A9] mb-1 leading-snug">{title}</h3>
         <span className="text-[#D9A85C] font-sans text-sm mb-4 block tracking-wide">{date}</span>

@@ -7,13 +7,13 @@ const About = () => {
     <section id="about" className="relative w-full h-[100dvh] lg:h-screen min-h-[650px] flex items-center overflow-hidden z-10">
       <div className="w-full max-w-7xl mx-auto px-6 relative z-10 py-6 md:py-0">
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-center">
           
           {/* LEFT: ABOUT */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-20px" }}
             transition={{ duration: 0.8 }}
             className="flex flex-col justify-center space-y-3 md:space-y-6"
           >
@@ -28,7 +28,7 @@ const About = () => {
               parampara 1.0 is the inter-college hackathon of Ramakrishna Mission Vivekananda Centenary College, an initiative by E-Cell RKMVCC.
             </p>
             
-            <p className="text-gray-400 text-xs md:text-base leading-relaxed hidden sm:block">
+            <p className="text-gray-400 text-xs md:text-base leading-relaxed">
               It's a platform where ideas meet tradition, and innovation creates impact. Together by the Timeless values of art and heritage, we challenge young minds to build solutions that empower communities and shape a better tomorrow.
             </p>
           </motion.div>
@@ -42,6 +42,7 @@ const About = () => {
             className="flex justify-center items-center relative"
           >
             <img 
+              loading="lazy"
               src={aboutImg} 
               alt="Parampara About Theme" 
               className="w-full max-w-[150px] sm:max-w-xs lg:max-w-md object-contain mix-blend-screen"
@@ -52,7 +53,7 @@ const About = () => {
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-20px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex flex-col justify-center border border-[var(--color-brand-gold)]/50 rounded-3xl max-[420px]:p-4 p-5 lg:p-8 relative bg-[var(--color-brand-surface-1)]/30 md:backdrop-blur-sm"
           >
@@ -91,7 +92,7 @@ const About = () => {
                 Bridging the legacy of wisdom, art, and culture with the power of modern innovation.
               </p>
               
-              <p className="text-gray-400 text-xs md:text-base leading-relaxed hidden sm:block">
+              <p className="text-gray-400 text-xs md:text-base leading-relaxed">
                 A promise between the old generation and the new — to keep innovating.
               </p>
             </div>

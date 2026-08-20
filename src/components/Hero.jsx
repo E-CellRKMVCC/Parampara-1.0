@@ -45,7 +45,7 @@ const Hero = () => {
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
           className="mb-2 md:mb-4"
         >
           <span className="inline-block text-[var(--color-brand-gold-light)] max-[420px]:text-[10px] text-xs md:text-sm max-[420px]:tracking-[0.1em] tracking-[0.2em] md:tracking-[0.3em] font-medium uppercase border border-white/20 rounded-full max-[420px]:px-3 px-6 max-[420px]:py-1.5 py-2 bg-white/5 md:backdrop-blur-sm">
@@ -57,7 +57,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-2 md:mb-4"
         >
           <img 
@@ -71,7 +71,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="mb-4 md:mb-8 drop-shadow-2xl"
         >
           {/* Title wrapper — glitch applied as a unit */}
@@ -105,7 +105,7 @@ const Hero = () => {
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className="flex flex-col md:flex-row items-center max-[420px]:gap-3 gap-6 md:gap-10 max-[420px]:px-4 px-6 md:px-10 max-[420px]:py-2 py-3 md:py-4 rounded-lg border border-[#D9A85C]/60 bg-[#06131A]/70 md:backdrop-blur-md relative overflow-hidden"
         >
           {/* Ornamental corners (simplified with CSS) */}
@@ -119,7 +119,7 @@ const Hero = () => {
               <Calendar size={32} strokeWidth={1.5} />
             </div>
             <div className="text-left flex flex-col">
-              <span className="text-xl font-bold text-white tracking-widest leading-tight">22 AUGUST</span>
+              <span className="text-xl font-bold text-white tracking-widest leading-tight">27 AUGUST</span>
               <span className="text-xl text-[#F0C477] font-medium leading-tight">2026</span>
             </div>
           </div>
@@ -137,7 +137,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-6 md:hidden flex flex-col items-center gap-4"
         >
           <RegisterButton size="lg" text="REGISTER NOW" />

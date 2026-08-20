@@ -31,6 +31,25 @@ const Navbar = () => {
   const closeMenu = () => { setIsMobileMenuOpen(false); };
   const toggle = () => (isMobileMenuOpen ? closeMenu() : openMenu());
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    if (isMobileMenuOpen) closeMenu();
+    
+    setTimeout(() => {
+      const target = document.querySelector(href);
+      if (target) {
+        // Offset for fixed navbar height
+        const offset = 80;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 50);
+  };
+
   const isActive = isScrolled || isContainerExpanded;
 
   return (
@@ -78,11 +97,12 @@ const Navbar = () => {
           </div>
 
           {/* Center: Desktop Nav */}
-          <div className="hidden lg:flex flex-1 justify-center items-center gap-8">
+          <div className="hidden xl:flex flex-1 justify-center items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="group relative text-[10px] font-futuristic font-medium tracking-[0.15em] uppercase text-gray-400 hover:text-[#D9A85C] transition-colors duration-200"
               >
                 {link.name}
@@ -99,7 +119,7 @@ const Navbar = () => {
               <RegisterButton size="sm" text="REGISTER" />
             </div>
             <button
-              className="lg:hidden text-[#D9A85C]/80 hover:text-[#D9A85C] w-9 h-9 flex items-center justify-center transition-colors duration-200"
+              className="xl:hidden text-[#D9A85C]/80 hover:text-[#D9A85C] w-9 h-9 flex items-center justify-center transition-colors duration-200"
               onClick={toggle}
               aria-label="Toggle menu"
             >
@@ -117,7 +137,7 @@ const Navbar = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
-              className="lg:hidden overflow-hidden"
+              className="xl:hidden overflow-hidden"
             >
               {/* Top divider — techy look */}
               <div className="mx-6 h-px bg-gradient-to-r from-transparent via-[#D9A85C]/30 to-transparent" />
@@ -127,7 +147,7 @@ const Navbar = () => {
                   <a
                     key={link.name}
                     href={link.href}
-                    onClick={closeMenu}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     className="group flex items-center gap-3 py-3 border-b border-white/[0.04] last:border-b-0"
                   >
                     {/* Index number — techy accent */}

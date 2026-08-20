@@ -14,7 +14,7 @@ const ProblemCard = ({ category, psCode, track, title, description, image, onCli
       {/* Top Image & Tags */}
       <div className="w-full flex justify-between items-start gap-2 relative z-10">
         <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
-          {image && <img src={image} alt={title} className="w-full h-full object-contain" />}
+          {image && <img loading="lazy" src={image} alt={title} className="w-full h-full object-contain" />}
         </div>
         <div className="flex flex-col items-end gap-1.5">
           <span className="text-[9px] md:text-[10px] font-bold tracking-wider text-[#051016] bg-[#D9A85C] px-2 py-0.5 rounded">

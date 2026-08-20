@@ -54,9 +54,9 @@ const Timeline = () => {
           <motion.div 
             initial={{ height: 0 }}
             whileInView={{ height: '100%' }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-20px" }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute border-opacity-40 border-[#D9A85C] border-l top-0 max-[420px]:left-[24px] left-[32px] md:left-1/2 md:-translate-x-1/2 origin-top"
+            className="absolute border-opacity-40 border-[#D9A85C] border-l top-0 max-[420px]:left-[24px] left-[32px] lg:left-1/2 lg:-translate-x-1/2 origin-top"
           />
           
           {timeline.map((item, index) => (
