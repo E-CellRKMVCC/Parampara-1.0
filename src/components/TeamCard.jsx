@@ -44,13 +44,7 @@ const TeamCard = ({ name, designation, image, linkedin, email, contain }) => {
             </a>
           )
         }
-        {
-          email === "#" && linkedin === "#" && (
-            <p className="w-fit px-2 h-fit rounded text-center flex items-center justify-center text-gray-400 text-sm">
-              Faculty Members in the Computer Science Department at RKMVCC
-            </p>
-          )
-        }
+
       </div>
       
     </div>

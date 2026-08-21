@@ -49,7 +49,7 @@ const Hero = () => {
           className="mb-2 md:mb-4"
         >
           <span className="inline-block text-[var(--color-brand-gold-light)] max-[420px]:text-[10px] text-xs md:text-sm max-[420px]:tracking-[0.1em] tracking-[0.2em] md:tracking-[0.3em] font-medium uppercase border border-white/20 rounded-full max-[420px]:px-3 px-6 max-[420px]:py-1.5 py-2 bg-white/5 md:backdrop-blur-sm">
-            An Inter-College Hackathon
+            An Intra-College Hackathon
           </span>
         </motion.div>
         
