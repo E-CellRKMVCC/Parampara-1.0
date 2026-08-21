@@ -8,8 +8,8 @@ import contactBg from '../assets/images/Contact-Us-bg.png';
 // Group members by role tier
 const faculty     = team.filter(m => m.id === 1);
 const organizers  = team.filter(m => [2, 3, 4].includes(m.id));  // Soumalya, Subhodeep, Rahul
-const roleMembers = team.filter(m => [5, 6, 7].includes(m.id));  // Rajdeep, Surajit, Abhradeep
-const volunteers  = team.filter(m => m.id >= 8);                  // Toulik, Dhrubajyoti, Palash, Avishek
+const roleMembers = team.filter(m => [5, 6, 7, 11].includes(m.id));  // Rajdeep, Surajit, Abhradeep, Tamaghna
+const volunteers  = team.filter(m => m.id >= 8 && m.id !== 11);       // Toulik, Dhrubajyoti, Palash, Jyotishman
 
 const RowLabel = ({ label }) => (
   <div className="w-full flex items-center gap-3 mb-4">
@@ -79,20 +79,30 @@ const Team = () => {
           <div className="flex flex-col items-center gap-4">
             <RowLabel label="Lead Organiser & Co-Organisers" />
 
-            {/* Lead — centered alone */}
-            <div className="flex justify-center w-full">
-              <div className="w-full max-w-[200px] sm:max-w-[220px] md:max-w-[260px]">
-                <TeamCard {...organizers[0]} />
-              </div>
-            </div>
-
-            {/* Co-Organisers — side by side */}
             <div className="flex flex-wrap justify-center gap-4 w-full">
-              {organizers.slice(1).map(member => (
-                <div key={member.id} className="w-[calc(50%-0.5rem)] sm:w-[calc(33.33%-0.75rem)] md:w-[calc(30%-1rem)]">
-                  <TeamCard {...member} />
-                </div>
-              ))}
+              {organizers.map((member, index) => {
+                let orderClass = "";
+                if (index === 0) orderClass = "order-1 sm:order-2";
+                if (index === 1) orderClass = "order-2 sm:order-1";
+                if (index === 2) orderClass = "order-3 sm:order-3";
+
+                return (
+                  <div key={member.id} className={`
+                    ${index === 0 
+                      ? "w-full flex justify-center sm:block sm:w-[calc(33.33%-0.75rem)] md:w-[calc(33.33%-1rem)]"
+                      : "w-[calc(50%-0.5rem)] sm:w-[calc(33.33%-0.75rem)] md:w-[calc(33.33%-1rem)]"}
+                    ${orderClass}
+                  `}>
+                    <div className={
+                      index === 0 
+                        ? "h-full w-[calc(50vw-2rem)] max-w-[200px] sm:w-full sm:max-w-none sm:scale-105 sm:z-10 relative transition-transform duration-300" 
+                        : "h-full w-full"
+                    }>
+                      <TeamCard {...member} />
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -101,7 +111,7 @@ const Team = () => {
             <RowLabel label="Core Team" />
             <div className="flex flex-wrap justify-center gap-4 w-full">
               {roleMembers.map(member => (
-                <div key={member.id} className="w-[calc(50%-0.5rem)] sm:w-[calc(33.33%-0.75rem)] md:w-[calc(33.33%-1rem)]">
+                <div key={member.id} className="w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)] md:w-[calc(25%-1rem)]">
                   <TeamCard {...member} />
                 </div>
               ))}

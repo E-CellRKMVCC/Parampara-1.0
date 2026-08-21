@@ -25,7 +25,7 @@ const About = () => {
             </div>
             
             <p className="text-gray-300 text-xs md:text-base leading-relaxed">
-              parampara 1.0 is the inter-college hackathon of Ramakrishna Mission Vivekananda Centenary College, an initiative by E-Cell RKMVCC.
+              parampara 1.0 is the intra-college hackathon of Ramakrishna Mission Vivekananda Centenary College, an initiative by E-Cell RKMVCC.
             </p>
             
             <p className="text-gray-400 text-xs md:text-base leading-relaxed">
