@@ -1,20 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ecellLogo from '../assets/images/E-cell-Logo-W.webp';
+import { team } from '../data/team';
 
 /**
  * Sequence:
- *  0ms   → ecell logo fades in
- *  1400ms → parampara text fades in (phase: 'parampara')
- *  2400ms → glitch burst fires (isBursting: true)
- *  3000ms → glitch ends (isBursting: false)
- *  3100ms → preloader dissolves (setLoading(false))
+ *  0ms   → ecell logo fades in + preloads team & site assets
+ *  1500ms → parampara text fades in (phase: 'parampara')
+ *  3000ms → glitch burst fires (isBursting: true)
+ *  3500ms → glitch ends (isBursting: false)
+ *  3500ms → preloader dissolves (setLoading(false))
  */
 const Preloader = ({ setLoading }) => {
   const [phase, setPhase] = useState('ecell'); // 'ecell' | 'parampara'
   const [isBursting, setIsBursting] = useState(false);
 
   useEffect(() => {
+    // Eagerly preload all team images and key assets during the loading screen
+    team.forEach(member => {
+      if (member.image) {
+        const img = new Image();
+        img.src = member.image;
+      }
+    });
+
     // Step 1: Show Parampara after ecell logo
     const t1 = setTimeout(() => setPhase('parampara'), 1500);
 
