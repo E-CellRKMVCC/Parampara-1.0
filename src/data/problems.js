@@ -1,17 +1,17 @@
-import psAfr01 from '../assets/images/ps-afr-01.png';
-import psAfr02 from '../assets/images/ps-afr-02.png';
-import psAfr03 from '../assets/images/ps-afr-03.png';
-import psCgt01 from '../assets/images/ps-cgt-01.png';
-import psTr01 from '../assets/images/ps-tr-01.png';
-import psBc01 from '../assets/images/ps-bc-01.png';
-import psBc02 from '../assets/images/ps-bc-02.png';
-import psEd01 from '../assets/images/ps-ed-01.png';
-import psEd02 from '../assets/images/ps-ed-02.png';
-import psDm01 from '../assets/images/ps-dm-01.png';
-import psMbh01 from '../assets/images/ps-mbh-01.png';
-import psMbh02 from '../assets/images/ps-mbh-02.png';
-import psMbh03 from '../assets/images/ps-mbh-03.png';
-import psMs01 from '../assets/images/Misc.png';
+import psAfr01 from '../assets/images/ps-afr-01.webp';
+import psAfr02 from '../assets/images/ps-afr-02.webp';
+import psAfr03 from '../assets/images/ps-afr-03.webp';
+import psCgt01 from '../assets/images/ps-cgt-01.webp';
+import psTr01 from '../assets/images/ps-tr-01.webp';
+import psBc01 from '../assets/images/ps-bc-01.webp';
+import psBc02 from '../assets/images/ps-bc-02.webp';
+import psEd01 from '../assets/images/ps-ed-01.webp';
+import psEd02 from '../assets/images/ps-ed-02.webp';
+import psDm01 from '../assets/images/ps-dm-01.webp';
+import psMbh01 from '../assets/images/ps-mbh-01.webp';
+import psMbh02 from '../assets/images/ps-mbh-02.webp';
+import psMbh03 from '../assets/images/ps-mbh-03.webp';
+import psMs01 from '../assets/images/Misc.webp';
 
 export const submissionDetails = {
   format: "Solution Presentation Deck (PPT / PDF ONLY)",

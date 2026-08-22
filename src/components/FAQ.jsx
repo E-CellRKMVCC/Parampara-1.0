@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { faqs } from '../data/faq';
-import faqBg from '../assets/images/Faq-BG.png';
+import faqBg from '../assets/images/Faq-BG.webp';
 
 const FAQItem = ({ question, answer, isOpen, onClick }) => {
   return (

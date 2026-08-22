@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { timeline } from '../data/timeline';
 import TimelineItem from './TimelineItem';
-import timelineBg from '../assets/images/timeline-bg.png';
+import timelineBg from '../assets/images/timeline-bg.webp';
 
 const Timeline = () => {
   const containerRef = useRef(null);

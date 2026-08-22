@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ecellLogo from '../assets/images/E-cell-Logo-W.png';
+import ecellLogo from '../assets/images/E-cell-Logo-W.webp';
 
 /**
  * Sequence:
@@ -16,16 +16,16 @@ const Preloader = ({ setLoading }) => {
 
   useEffect(() => {
     // Step 1: Show Parampara after ecell logo
-    const t1 = setTimeout(() => setPhase('parampara'), 700);
+    const t1 = setTimeout(() => setPhase('parampara'), 1500);
 
     // Step 2: Fire glitch burst (Wait longer so the text stays pristine)
-    const t2 = setTimeout(() => setIsBursting(true), 1500);
+    const t2 = setTimeout(() => setIsBursting(true), 3000);
 
     // Step 3: End glitch
-    const t3 = setTimeout(() => setIsBursting(false), 1800);
+    const t3 = setTimeout(() => setIsBursting(false), 3500);
 
     // Step 4: Dismiss preloader
-    const t4 = setTimeout(() => setLoading(false), 2000);
+    const t4 = setTimeout(() => setLoading(false), 3500);
 
     return () => {
       clearTimeout(t1);
