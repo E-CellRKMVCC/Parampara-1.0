@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ecellLogo from '../assets/images/E-cell-Logo-W.png';
-import xLogo from '../assets/images/X.png';
-import paramparaLogo from '../assets/images/parampara-w.png';
+import { useLocation, useNavigate } from 'react-router-dom';
+import ecellLogo from '../assets/images/E-cell-Logo-W.webp';
+import xLogo from '../assets/images/X.webp';
+import paramparaLogo from '../assets/images/parampara-w.webp';
 import RegisterButton from './RegisterButton';
 import problemStatementPdf from '../assets/PARAMPARA_Problem_Statement.pdf';
 
@@ -11,6 +12,8 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isContainerExpanded, setIsContainerExpanded] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -35,6 +38,28 @@ const Navbar = () => {
     e.preventDefault();
     if (isMobileMenuOpen) closeMenu();
     
+    if (href.startsWith('/')) {
+      navigate(href);
+      return;
+    }
+
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const target = document.querySelector(href);
+        if (target) {
+          const offset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 300); // Give it time to render home page
+      return;
+    }
+
     setTimeout(() => {
       const target = document.querySelector(href);
       if (target) {
@@ -90,10 +115,10 @@ const Navbar = () => {
           isScrolled ? 'py-2 max-[420px]:px-3 px-6 md:px-8' : 'py-5 max-[420px]:px-3 px-6 md:px-12'
         }`}>
           {/* Left: Logos */}
-          <div className="flex items-center max-[420px]:gap-2 gap-3 md:gap-4">
-            <img onClick={()=>{window.location.href='https://e-cell-rkmvcc.vercel.app/'}} src={ecellLogo} alt="E-Cell Logo" className="max-[420px]:h-10 h-14 md:h-16 w-auto object-contain cursor-pointer" />
-            <img src={xLogo} alt="X" className="max-[420px]:h-3 h-4 md:h-5 w-auto object-contain opacity-50" />
-            <img onClick={()=>{window.location.reload()}} src={paramparaLogo} alt="Parampara Logo" className="max-[420px]:h-10 h-14 md:h-16 w-auto object-contain cursor-pointer" />
+          <div className="flex items-center max-[420px]:gap-2 gap-2 md:gap-3">
+            <img onClick={()=>{window.location.href='https://e-cell-rkmvcc.vercel.app/'}} src={ecellLogo} alt="E-Cell Logo" className="max-[420px]:h-9 h-11 md:h-12 lg:h-14 w-auto object-contain cursor-pointer" />
+            <img src={xLogo} alt="X" className="max-[420px]:h-2.5 h-3 md:h-3.5 w-auto object-contain opacity-50" />
+            <img onClick={()=>{navigate('/')}} src={paramparaLogo} alt="Parampara Logo" className="max-[420px]:h-9 h-11 md:h-12 lg:h-14 w-auto object-contain cursor-pointer" />
           </div>
 
           {/* Center: Desktop Nav */}
@@ -113,11 +138,20 @@ const Navbar = () => {
           </div>
 
           {/* Right: CTA & Mobile Toggle */}
-          <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center gap-3">
-              <RegisterButton size="sm" text="PROBLEM STATEMENTS" href={problemStatementPdf} />
+          <div className="flex items-center gap-2 md:gap-3">
+            {/* Desktop (xl+): SUBMISSION & REGISTER */}
+            <div className="hidden xl:flex items-center gap-3">
+              <RegisterButton size="sm" text="SUBMISSION" href="/submission" target="_self" />
               <RegisterButton size="sm" text="REGISTER" />
             </div>
+
+            {/* Tablet (md to xl): All 3 buttons cleanly sized */}
+            <div className="hidden md:flex xl:hidden items-center gap-1.5 lg:gap-2">
+              <RegisterButton size="sm" className="!px-3 !py-1.5 !text-[10px] lg:!text-xs" text="SUBMISSION" href="/submission" target="_self" />
+              <RegisterButton size="sm" className="!px-3 !py-1.5 !text-[10px] lg:!text-xs" text="REGISTER" />
+              <RegisterButton size="sm" className="!px-3 !py-1.5 !text-[10px] lg:!text-xs" text="PROBLEM STATEMENTS" href={problemStatementPdf} target="_blank" />
+            </div>
+
             <button
               className="xl:hidden text-[#D9A85C]/80 hover:text-[#D9A85C] w-9 h-9 flex items-center justify-center transition-colors duration-200"
               onClick={toggle}
@@ -162,6 +196,13 @@ const Navbar = () => {
                     </span>
                   </a>
                 ))}
+
+                {/* Mobile / Tablet Drawer Action Buttons */}
+                <div className="pt-4 mt-2 flex flex-col gap-2.5 border-t border-[#D9A85C]/20">
+                  <RegisterButton size="sm" text="SUBMISSION" href="/submission" target="_self" fullWidth onClick={closeMenu} />
+                  <RegisterButton size="sm" text="REGISTER NOW" fullWidth onClick={closeMenu} />
+                  <RegisterButton size="sm" text="PROBLEM STATEMENTS" href={problemStatementPdf} target="_blank" fullWidth onClick={closeMenu} />
+                </div>
               </div>
             </motion.div>
           )}

@@ -1,12 +1,16 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const RegisterButton = ({ 
   text = 'REGISTER', 
   href = 'https://forms.gle/f76Aj5QzdLUyu6wbA', 
   size = 'md', 
   fullWidth = false,
-  className = '' 
+  className = '',
+  target = '_blank',
+  download = false,
+  onClick
 }) => {
   const sizeClasses = {
     sm: 'px-5 py-1.5 text-xs gap-1.5',
@@ -14,12 +18,17 @@ const RegisterButton = ({
     lg: 'px-9 py-3.5 text-sm md:text-base gap-2.5'
   };
 
+  // Use Link ONLY for internal SPA routes (not file assets or external/blank links)
+  const isInternal = typeof href === 'string' && href.startsWith('/') && !href.includes('.') && !download && target !== '_blank';
+  const Component = isInternal ? Link : 'a';
+  const linkProps = isInternal
+    ? { to: href, onClick }
+    : { href, target, rel: 'noopener noreferrer', onClick, ...(download ? { download: true } : {}) };
+
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`group relative inline-flex items-center justify-center overflow-hidden rounded-full font-bold tracking-widest uppercase text-[#051016] 
+    <Component
+      {...linkProps}
+      className={`group relative inline-flex items-center justify-center overflow-hidden rounded-full font-bold tracking-widest uppercase text-[#051016] whitespace-nowrap
         bg-gradient-to-r from-[#F9E0A9] via-[#D9A85C] to-[#9B6F30] 
         border border-[#F9E0A9]/50
         shadow-[0_0_20px_rgba(217,168,92,0.4)] 
@@ -38,14 +47,14 @@ const RegisterButton = ({
       <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
 
       {/* Button content */}
-      <span className="relative z-10 flex items-center justify-center gap-2">
-        <span>{text}</span>
+      <span className="relative z-10 flex items-center justify-center gap-1.5 md:gap-2 whitespace-nowrap">
+        <span className="whitespace-nowrap">{text}</span>
         <ArrowRight 
           size={size === 'sm' ? 14 : size === 'lg' ? 18 : 16} 
-          className="transform group-hover:translate-x-1 transition-transform duration-300 ease-out" 
+          className="transform group-hover:translate-x-1 transition-transform duration-300 ease-out flex-shrink-0" 
         />
       </span>
-    </a>
+    </Component>
   );
 };
 

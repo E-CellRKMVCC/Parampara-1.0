@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { team } from '../data/team';
 import TeamCard from './TeamCard';
 import { Mail } from 'lucide-react';
-import contactBg from '../assets/images/Contact-Us-bg.png';
+import contactBg from '../assets/images/Contact-Us-bg.webp';
 
 // Group members by role tier
 const faculty     = team.filter(m => m.id === 1);

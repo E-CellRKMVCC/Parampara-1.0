@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 import ParamparaLogo from './ParamparaLogo';
-import ecellLogo from '../assets/images/E-cell-Logo-W.png';
+import ecellLogo from '../assets/images/E-cell-Logo-W.webp';
 
 const Footer = () => {
   return (
